@@ -18,7 +18,8 @@ const constructUrl = (url: number) => {
 
 export const JobBoard = () => {
   const [data, setData] = useState<Job[]>([]);
-  const [increase, setIncrease] = useState(6);
+  const [idList, setIdList] = useState<number[]>([]);
+  const [idGroup, setIdGroup] = useState(0);
 
   useEffect(() => {
     fetch(storiesUrl)
@@ -26,20 +27,30 @@ export const JobBoard = () => {
         return res.json();
       })
       .then((resData) => {
-        resData.forEach((el: number) => {
-          fetch(constructUrl(el))
-            .then((res) => {
-              return res.json();
-            })
-            .then((responseData) => {
-              setData((prev) => [...prev, responseData]);
-            });
-        });
+        setIdList(resData)
       });
   }, []);
 
+  useEffect(() => {
+    fetchJobs()
+  }, [idList])
+
+  const fetchJobs = () => {
+    idList.slice(idGroup, idGroup + 6).forEach((el: number) => {
+      fetch(constructUrl(el))
+        .then((res) => {
+          return res.json();
+        })
+        .then((responseData) => {
+          setData((prev) => [...prev, responseData]);
+        });
+      });
+
+    setIdGroup(prev => prev + 1)
+  }
+
   return (
-    <div>
+    <div style={{padding: "50px"}}>
       <div
         style={{
           fontSize: "24px",
@@ -51,7 +62,7 @@ export const JobBoard = () => {
         Hacker News Jobs Board
       </div>
       <div>
-        {data && data.slice(0, increase).map((el) => {
+        {data && data.map((el) => {
           return (
             <div
               style={{
@@ -81,7 +92,7 @@ export const JobBoard = () => {
           cursor: 'pointer',
           color: 'white'
         }}
-        onClick={() => setIncrease(prev => prev + 6)}
+        onClick={fetchJobs}
       >
         Load More Jobs
       </button>

@@ -16,7 +16,6 @@ export const CounterComponent = () => {
 
   return <div style={{padding: '50px'}}>
     <h1>Counter: {count}</h1>
-    <h1>Test: 0</h1>
     <button onClick={increase}>Increment</button>
     <button onClick={decrease}>Decrement</button>
   </div>
