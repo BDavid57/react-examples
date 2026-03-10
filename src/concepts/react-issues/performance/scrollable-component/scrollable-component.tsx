@@ -9,7 +9,7 @@ const calculateColor = (position: number) => {
   return `rgb(${normalizedPosition}, ${255 - normalizedPosition}, 150)`;
 };
 
-export default function ScrollableComponent() {
+export const ScrollableComponent = () => {
   const [position, setPosition] = useState(170);
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {

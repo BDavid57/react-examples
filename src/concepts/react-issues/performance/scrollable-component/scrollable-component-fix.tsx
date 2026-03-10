@@ -2,7 +2,7 @@ import { AdditionalComplexThings, BlaBla } from "./components/dummy-components";
 import ScrollableContentFix from "./components/scrollable-content-fix";
 import { SlowComponent } from "./components/slow-component";
 
-export default function ScrollableComponentFix() {
+export const ScrollableComponentFix = () => {
   return (
     <ScrollableContentFix>
       <SlowComponent />

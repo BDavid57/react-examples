@@ -1,8 +1,5 @@
-import { LiftingUpComponent, SlowParentComponent } from './concepts/react-issues/performance';
-import ScrollableComponent from './concepts/react-issues/performance/scrollable-component/scrollable-component';
-import ScrollableComponentFix from './concepts/react-issues/performance/scrollable-component/scrollable-component-fix';
-import { MtgCounterArea } from './code-examples/mtg-counter-area';
-import { CounterComponent, HtmlToPdf, JobBoard, PhoneNumberInput, SearchComponent, StarRating, TicTacToeBoard } from './code-examples';
+import { LiftingUpComponent, ScrollableComponent, ScrollableComponentFix, SlowParentComponent } from './concepts/react-issues/performance';
+import { CounterComponent, HtmlToPdf, JobBoard, MtgCounterArea, PhoneNumberInput, SearchComponent, StarRating, TicTacToeBoard } from './code-examples';
 
 function App() {
 
@@ -11,7 +8,7 @@ function App() {
       {/* <ScrollableComponent /> */}
       {/* <ScrollableComponentFix /> */}
       {/* <LiftingUpComponent /> */}
-      <JobBoard />
+      {/* <JobBoard /> */}
       {/* <SearchComponent /> */}
       {/* <TicTacToeBoard /> */}
       {/* <MtgCounterArea /> */}
