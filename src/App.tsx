@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement } from './features/counterSlice';
+import { selectCounterValue } from './features/selectors';
+import { LiftingUpComponent, SlowParentComponent } from './concepts/react-issues/performance';
+import ScrollableComponent from './concepts/react-issues/performance/scrollable-component/scrollable-component';
+import ScrollableComponentFix from './concepts/react-issues/performance/scrollable-component/scrollable-component-fix';
+import { HtmlToPdf, JobBoard, PhoneNumberInput, SearchComponent, StarRating, TicTacToeBoard } from './code-examples';
+import { MtgCounterArea } from './code-examples/mtg-counter-area';
 
 function App() {
+  const count = useSelector(selectCounterValue);
+  const dispatch = useDispatch();
+ 
+  const increase = () => {
+    dispatch(increment())
+  }
+
+  const decrease = () => {
+    dispatch(decrement())
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{backgroundColor: 'white'}}>
+      {/* <ScrollableComponent /> */}
+      {/* <ScrollableComponentFix /> */}
+      {/* <LiftingUpComponent /> */}
+      <JobBoard />
+      {/* <SearchComponent /> */}
+      {/* <TicTacToeBoard />
+      <MtgCounterArea />
+      <HtmlToPdf />
+      <PhoneNumberInput />
+      <SlowParentComponent />
+      <h1>Counter: {count}</h1>
+      <h1>Test: 0</h1>
+      <button onClick={increase}>Increment</button>
+      <button onClick={decrease}>Decrement</button>
+      <StarRating maxStars={5} defaultValue={0} /> */}
     </div>
   );
 }
