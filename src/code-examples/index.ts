@@ -4,3 +4,4 @@ export * from './phone-number-input';
 export * from './pdf-component';
 export * from './tic-tac-toe';
 export * from './job-board';
+export * from './counter-component';
