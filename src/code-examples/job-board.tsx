@@ -19,7 +19,8 @@ const constructUrl = (url: number) => {
 export const JobBoard = () => {
   const [data, setData] = useState<Job[]>([]);
   const [idList, setIdList] = useState<number[]>([]);
-  const [idGroup, setIdGroup] = useState(0);
+
+  const displayNumber = 3
 
   useEffect(() => {
     fetch(storiesUrl)
@@ -36,17 +37,18 @@ export const JobBoard = () => {
   }, [idList])
 
   const fetchJobs = () => {
-    idList.slice(idGroup, idGroup + 6).forEach((el: number) => {
+    let index = 0
+
+    idList.slice(index, index + displayNumber).forEach((el: number) => {
       fetch(constructUrl(el))
         .then((res) => {
           return res.json();
         })
         .then((responseData) => {
           setData((prev) => [...prev, responseData]);
+          index += displayNumber
         });
       });
-
-    setIdGroup(prev => prev + 1)
   }
 
   return (

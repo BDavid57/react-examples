@@ -8,7 +8,7 @@ function App() {
       {/* <ScrollableComponent /> */}
       {/* <ScrollableComponentFix /> */}
       {/* <LiftingUpComponent /> */}
-      {/* <JobBoard /> */}
+      <JobBoard />
       {/* <SearchComponent /> */}
       {/* <TicTacToeBoard /> */}
       {/* <MtgCounterArea /> */}
