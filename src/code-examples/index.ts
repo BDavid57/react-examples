@@ -6,3 +6,4 @@ export * from './tic-tac-toe';
 export * from './job-board';
 export * from './counter-component';
 export * from './mtg-counter-area';
+export * from './transfer-list';
